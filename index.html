@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memor - Turn Every Place Into Your Story</title>
+    <link rel="icon" type="image/png" href="Asserts/logo/memor-high-resolution-logo-transparent.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="Asserts/logo/memor-high-resolution-logo-grayscale-transparent.png" alt="Memor" class="logo-img">
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#interest" class="btn-nav">I'm Interested</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Turn Every Place Into Your Story</h1>
+                <p class="hero-subtitle">Connect friends and family through memories anchored to real-world spaces. Experience AR-powered memory making like never before.</p>
+                <a href="#interest" class="btn-primary btn-large">Get Started for Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Imagined Features</h2>
+            <p class="section-subtitle">Coming soon to transform how you experience memories</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Relive Immersive Moments</h3>
+                    <p>Step back in time with all your senses. Experience memories with sounds, feelings, and stories anchored to real places.</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Connect in Real Life</h3>
+                    <p>Get notified when friends are nearby and both have free time. Make spontaneous meetups effortless and fun.</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Reimagine Your Timeline</h3>
+                    <p>A dynamic timeline that curates your life's best moments, not just scattered photos but complete experiences.</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Pitch Section -->
+    <section class="pitch">
+        <div class="container">
+            <div class="pitch-content">
+                <h2 class="pitch-title">Meet Memor: Where Your World Becomes Your Story</h2>
+                
+                <div class="pitch-text">
+                    <p class="pitch-intro">Transform every place into a living memory. Memor uses AR to anchor your photos, voices, and stories to real-world locations, capturing complete experiences with all your senses. More than just preserving memories, Memor helps you create new ones—recognizing when friends are nearby, suggesting spontaneous meetups, and making every moment effortless and fun. With Memor, every place becomes part of your story.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interest Form Section -->
+    <section id="interest" class="interest-form">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Be the First to Experience Memor</h2>
+                <p class="form-subtitle">Join the memory makers. Leave your email and we'll keep you updated on our journey.</p>
+                
+                <form id="interestForm" class="form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tell us what excites you most about Memor (optional)" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-large btn-full">I'm Interested ✨</button>
+                </form>
+                
+                <div id="successMessage" class="success-message">
+                    <div class="success-icon">🎉</div>
+                    <h3>Welcome to the Memor Community!</h3>
+                    <p>We'll be in touch soon with updates on our journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="Asserts/logo/memor-high-resolution-logo-transparent.png" alt="Memor" class="logo-img footer-logo">
+                    <p>Turn every place into your story</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#about">About</a>
+                        <a href="#interest">Get Started</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">📧</span> Email
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">🐦</span> Twitter
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">📱</span> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Memor. Making memories unforgettable.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
