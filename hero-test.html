@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hero Visualization Test</title>
+    <style>
+        body { margin: 0; background: #000; }
+        #test-canvas { 
+            width: 100vw; 
+            height: 100vh; 
+            display: block;
+        }
+        #info {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-family: monospace;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">Testing...</div>
+    <canvas id="test-canvas"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('test-canvas');
+        const info = document.getElementById('info');
+        const gl = canvas.getContext('webgl2');
+        
+        info.innerHTML = `
+            Canvas: ${canvas ? 'Found' : 'Not found'}<br>
+            WebGL 2: ${gl ? 'Supported' : 'Not supported'}<br>
+            Canvas Size: ${canvas.offsetWidth} x ${canvas.offsetHeight}<br>
+        `;
+        
+        // Simple Canvas 2D test
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        const particles = [];
+        for (let i = 0; i < 1000; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                size: Math.random() * 5 + 2,
+                color: `hsl(${Math.random() * 60 + 250}, 70%, 60%)`
+            });
+        }
+        
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        info.innerHTML += `<br>Particles: ${particles.length}<br>Status: Animating`;
+    </script>
+</body>
+</html>
+

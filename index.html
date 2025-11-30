@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -20,6 +21,7 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#prototypes">Vision</a>
                 <a href="#about">About</a>
                 <a href="#interest" class="btn-nav">I'm Interested</a>
             </div>
@@ -28,7 +30,8 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-overlay">
             <div class="hero-content">
                 <h1 class="hero-title">Turn Every Place Into Your Story</h1>
                 <p class="hero-subtitle">Connect friends and family through memories anchored to real-world spaces. Experience AR-powered memory making like never before.</p>
@@ -63,6 +66,46 @@
                     <h3>Reimagine Your Timeline</h3>
                     <p>A dynamic timeline that curates your life's best moments, not just scattered photos but complete experiences.</p>
                     <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prototype Section -->
+    <section id="prototypes" class="prototypes">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <p class="section-subtitle">Early designs bringing our vision to life</p>
+            
+            <div class="prototype-grid">
+                <div class="prototype-card">
+                    <div class="prototype-image">
+                        <img src="Asserts/Prototype/Collobrate.jpeg" alt="Collaboration Prototype">
+                    </div>
+                    <div class="prototype-overlay">
+                        <h3>Collaboration Features</h3>
+                        <p>Share memories with friends and family</p>
+                    </div>
+                </div>
+                
+                <div class="prototype-card">
+                    <div class="prototype-image">
+                        <img src="Asserts/Prototype/Network.jpeg" alt="Network Prototype">
+                    </div>
+                    <div class="prototype-overlay">
+                        <h3>Social Network</h3>
+                        <p>Connect with your community</p>
+                    </div>
+                </div>
+                
+                <div class="prototype-card">
+                    <div class="prototype-image">
+                        <img src="Asserts/Prototype/WhatsApp Image 2025-11-29 at 05.04.49 (1).jpeg" alt="Memory Interface Prototype">
+                    </div>
+                    <div class="prototype-overlay">
+                        <h3>Memory Interface</h3>
+                        <p>Intuitive design for capturing moments</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,14 +175,11 @@
                     
                     <div class="footer-column">
                         <h4>Connect</h4>
-                        <a href="#" class="social-link">
-                            <span class="social-icon">📧</span> Email
+                        <a href="mailto:vs3128@nyu.edu" class="social-link">
+                            <span class="social-icon">📧</span> vs3128@nyu.edu
                         </a>
-                        <a href="#" class="social-link">
-                            <span class="social-icon">🐦</span> Twitter
-                        </a>
-                        <a href="#" class="social-link">
-                            <span class="social-icon">📱</span> Instagram
+                        <a href="mailto:as20373@nyu.edu" class="social-link">
+                            <span class="social-icon">📧</span> as20373@nyu.edu
                         </a>
                     </div>
                 </div>
@@ -153,6 +193,15 @@
 
     <!-- Confetti Canvas -->
     <canvas id="confetti"></canvas>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Prototype">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next" id="lightbox-next">&#10095;</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
