@@ -425,6 +425,8 @@ class SimpleHeroVisualization {
         this.isScrolling = false;
         this.scrollTimeout = null;
         this.animationId = null;
+        this.isVisible = true;
+        this.isPaused = false;
         
         console.log('Simple Canvas 2D visualization starting...');
         this.init();
@@ -448,6 +450,9 @@ class SimpleHeroVisualization {
                 this.isScrolling = false;
             }, 150);
         }, { passive: true });
+        
+        // Set up Intersection Observer to pause when out of view
+        this.setupVisibilityObserver();
         
         // Define all image paths (web-compatible formats only)
         this.imagesToLoad = [
@@ -649,7 +654,53 @@ class SimpleHeroVisualization {
         console.log('Canvas resized to:', this.canvas.width, 'x', this.canvas.height);
     }
     
+    setupVisibilityObserver() {
+        // Create Intersection Observer to detect when hero section is visible
+        const options = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of hero is visible
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                this.isVisible = entry.isIntersecting;
+                
+                if (this.isVisible) {
+                    // Hero section is visible - resume animation
+                    if (this.isPaused) {
+                        console.log('🎬 Resuming animation - hero section visible');
+                        this.isPaused = false;
+                        this.animate();
+                    }
+                } else {
+                    // Hero section is out of view - pause animation
+                    if (!this.isPaused) {
+                        console.log('⏸️ Pausing animation - hero section hidden (performance optimization)');
+                        this.isPaused = true;
+                        if (this.animationId) {
+                            cancelAnimationFrame(this.animationId);
+                            this.animationId = null;
+                        }
+                    }
+                }
+            });
+        }, options);
+        
+        // Observe the hero section
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            observer.observe(heroSection);
+            console.log('👁️ Visibility observer set up for hero section');
+        }
+    }
+    
     animate() {
+        // Stop animation if paused (out of view)
+        if (this.isPaused) {
+            return;
+        }
+        
         // Clear canvas more efficiently during scroll
         if (this.isScrolling) {
             // Simplified rendering during scroll for performance
